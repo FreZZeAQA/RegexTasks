@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class SecondTask {
     public static void main(String[] args) {
@@ -12,10 +11,9 @@ public class SecondTask {
         do {
             System.out.print("Email:");
             email = scanner.nextLine().toLowerCase();
-            Pattern pattern = Pattern.compile("@gmail.com$");
-            Matcher matcher = pattern.matcher(email);
-            while (matcher.find()) {
-                validEmails.add(email);
+            boolean matches = email.matches("[a-zA-Z]{1,30}@gmail.com$");
+                if (matches){
+                    validEmails.add(email);
             }
         } while (!email.isEmpty());
         System.out.println("Valid Emails\n" + validEmails);
